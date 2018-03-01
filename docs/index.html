@@ -4,6 +4,8 @@
 
   <!--  Meta  -->
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cinematic.css</title>
 
   <!--  Styles  -->
@@ -13,7 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="container">
+  <div id="site-hero" class="container">
 <!--     <h2 class="cinematic next">Cinematic</h2> -->
     <h2 class="cinematic cinematic--credit-slide-01">
       <span class="cinematic__text">
@@ -21,14 +23,20 @@
       </span>
     </h2>
   </div>
-
-  <div class="button-group">
-    <button class="btn-cinematic" data-cinematic="fadeIn">Fade In</button>
-    <button class="btn-cinematic" data-cinematic="fadeInAndOut">Fade In and Out</button>
-    <button class="btn-cinematic" data-cinematic="fadeIn--andGrow">Fade In and Grow</button>
-    <button class="btn-cinematic" data-cinematic="fadeInAndOut--andGrow">Fade In and Out and Grow</button>
-    <button class="btn-cinematic" data-cinematic="shrink-in-focus">Shrink in Focus</button>
-    <button class="btn-cinematic" data-cinematic="from-center">From Center</button>
+  <div id="site-controls" class="container">
+    <div class="button-group">
+      <h2>Simple Animations</h2>
+      <button class="btn-cinematic" data-cinematic="fadeIn">Fade In</button>
+      <button class="btn-cinematic" data-cinematic="fadeOut">Fade Out</button>
+      <button class="btn-cinematic" data-cinematic="fadeInAndOut">Fade In and Out</button>
+      <button class="btn-cinematic" data-cinematic="fadeIn--andGrow">Fade In and Grow</button>
+      <button class="btn-cinematic" data-cinematic="fadeInAndOut--andGrow">Fade In and Out and Grow</button>
+    </div>
+    <div class="button-group">
+      <h2>Complex Animations</h2>
+      <button class="btn-cinematic" data-cinematic="shrink-in-focus">Shrink in Focus</button>
+      <button class="btn-cinematic" data-cinematic="from-center">From Center</button>
+    </div>
   </div>
   <!-- Scripts -->
   <script src="scripts/main.js"></script>

@@ -1,22 +1,39 @@
-.cinematic.cinematic--fadeIn {
-  animation: cinematic-fadeIn 2s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
+.cinematic--fadeIn {
+  animation: cinematic-fade 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
 
-.cinematic.cinematic--fadeInAndOut {
-  animation: cinematic-fadeIn 2s cubic-bezier(0.36, 0.21, 0.69, 0.88) 2 alternate; }
+.cinematic--fadeOut {
+  animation: cinematic-fade 5s cubic-bezier(0.36, 0.21, 0.69, 0.88) reverse; }
 
-.cinematic.cinematic--fadeIn--andGrow {
+.cinematic--fadeInAndOut {
+  animation: cinematic-fadeInAndOut 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
+
+.cinematic--fadeIn--andGrow {
   transform-origin: center center;
-  animation: cinematic-fadeIn-andGrow 4s cubic-bezier(0.36, 0.21, 0.69, 0.88);
-  /* demo styles */
-  letter-spacing: 2px; }
+  animation: cinematic-fadeIn-andGrow 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
 
-@keyframes cinematic-fadeIn {
+.cinematic--fadeInAndOut--andGrow {
+  transform-origin: center center;
+  animation: cinematic-fadeInAndOut-andGrow 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
+
+@keyframes cinematic-fade {
   0% {
     opacity: 0; }
-  5% {
+  25% {
     opacity: 0; }
   75% {
+    opacity: 1; }
+  100% {
     opacity: 1; } }
+
+@keyframes cinematic-fadeInAndOut {
+  0% {
+    opacity: 0; }
+  33% {
+    opacity: 1; }
+  67% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 @keyframes cinematic-fadeIn-andGrow {
   0% {
@@ -29,6 +46,19 @@
     transform: scale(2); }
   100% {
     opacity: 1;
+    transform: scale(2); } }
+
+/* TODO: include some time to post fade out? */
+@keyframes cinematic-fadeInAndOut-andGrow {
+  0% {
+    opacity: 0;
+    transform: scale(1); }
+  50% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     transform: scale(2); } }
 
 .cinematic--shrink-in-focus {
@@ -111,3 +141,5 @@
     width: 0%; }
   90% {
     width: auto; } }
+
+/*# sourceMappingURL=../../dist/cinematic.css.map */
