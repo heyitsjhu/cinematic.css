@@ -1,4 +1,4 @@
-@import 'animations/fades';
+@import 'animations/simple/fades';
 
 .cinematic--shrink-in-focus {
   transform-origin: center center;
@@ -47,6 +47,7 @@
     animation: c--cs01--text 3s cubic-bezier(0.32, 0.35, 0.45, 0.94) 2 alternate;
   }
 }
+
 @keyframes c--cs01--text {
   0% {
     top: 2em;
