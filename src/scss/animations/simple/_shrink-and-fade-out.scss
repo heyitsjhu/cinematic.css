@@ -1,0 +1,5 @@
+@keyframes c-shrinkAndFadeOut {
+  0% { transform: scale(1); opacity: 1; }
+  90% { opacity: 0; }
+  100% { transform: scale(.5); opacity: 0;}
+}

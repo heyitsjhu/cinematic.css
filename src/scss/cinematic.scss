@@ -1,4 +1,23 @@
-@import 'animations/simple/fades';
+$defaultBezier: cubic-bezier(0.36, 0.21, 0.69, 0.88);
+$defaultDuration: 5s;
+$defaultDelay: $defaultDuration;
+
+// transform positioning
+$t-center: unquote('center center');
+
+[class*="cinematic--"] {
+  animation-duration: $defaultDuration;
+  animation-timing-function: $defaultBezier;
+  &::after,
+  &::before,
+  .cinematic__text {
+    animation-duration: inherit;
+    animation-timing-function: inherit;
+  }
+}
+
+@import '_cinematic-simple';
+@import '_cinematic-complex';
 
 .cinematic--shrink-in-focus {
   transform-origin: center center;
@@ -16,63 +35,13 @@
   transform-origin: center center;
   animation: from-center 3s linear;
   overflow: hidden;
-  
+
   /* demo styles */
   background: rgba(255, 255, 255, 0.95);
   font-weight: 600;
 }
 
-/* must be a text element, with a span element */
-.cinematic.cinematic--credit-slide-01 {
-  display: inline-block;
-  position: relative;
-  padding-bottom: 0.16667em;
-  overflow-y: hidden;
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    animation: c--cs01--underline 3s cubic-bezier(0.32, 0.35, 0.45, 0.94) 2
-      alternate;
 
-    /* user should be able to change color, maybe even thickness */
-    border-bottom: 0.0833em solid #cc0000;
-  }
-  .cinematic__text {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    animation: c--cs01--text 3s cubic-bezier(0.32, 0.35, 0.45, 0.94) 2 alternate;
-  }
-}
-
-@keyframes c--cs01--text {
-  0% {
-    top: 2em;
-  }
-  20% {
-    top: 2em;
-  }
-  50% {
-    top: 0;
-  }
-}
-@keyframes c--cs01--underline {
-  0% {
-    width: 0%;
-    left: -25%;
-  }
-  30% {
-    width: 100%;
-    left: -25%;
-  }
-  50% {
-    width: 100%;
-    left: 0;
-  }
-}
 @keyframes shrink-in-focus {
   0% {
     opacity: 0;

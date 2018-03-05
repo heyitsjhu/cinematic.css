@@ -1,103 +1,187 @@
-.cinematic--fadeIn {
-  animation: cine-fade 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
+[class*="cinematic--"] {
+  animation-duration: 5s;
+  animation-timing-function: cubic-bezier(0.36, 0.21, 0.69, 0.88); }
+  [class*="cinematic--"]::after, [class*="cinematic--"]::before,
+  [class*="cinematic--"] .cinematic__text {
+    animation-duration: inherit;
+    animation-timing-function: inherit; }
 
-.cinematic--fadeOut {
-  animation: cine-fade 5s cubic-bezier(0.36, 0.21, 0.69, 0.88) reverse; }
-
-.cinematic--fadeInAndOut {
-  animation: cine-fadeInAndOut 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
-
-.cinematic--fadeIn--andGrow {
-  transform-origin: center center;
-  animation: cine-fadeIn-andGrow 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
-
-.cinematic--fadeInAndOut--andGrow {
-  transform-origin: center center;
-  animation: cine-fadeInAndOut-andGrow 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
-
-.cinematic--fadeIn--withCorners {
-  position: relative;
-  padding: 0.25em;
-  line-height: 1;
-  animation: cine-fadeInAndOut 5s cubic-bezier(0.36, 0.21, 0.69, 0.88); }
-  .cinematic--fadeIn--withCorners::before, .cinematic--fadeIn--withCorners::after {
-    content: "";
-    position: absolute;
-    border: 0.0625em solid transparent;
-    width: 40%;
-    height: 40%; }
-  .cinematic--fadeIn--withCorners::before {
-    left: 0;
-    bottom: 0;
-    border-left-color: #CC0000;
-    border-bottom-color: #CC0000;
-    animation: cine-animateCorners 5s linear; }
-  .cinematic--fadeIn--withCorners::after {
-    top: 0;
-    right: 0;
-    border-top-color: #CC0000;
-    border-right-color: #CC0000;
-    animation: cine-animateCorners 5s linear; }
-
-@keyframes cine-fade {
+@keyframes c-fadeIn {
   0% {
     opacity: 0; }
-  25% {
-    opacity: 0; }
-  75% {
-    opacity: 1; }
   100% {
     opacity: 1; } }
 
-@keyframes cine-fadeInAndOut {
+@keyframes c-fadeOut {
   0% {
-    opacity: 0; }
-  33% {
-    opacity: 1; }
-  67% {
     opacity: 1; }
   100% {
     opacity: 0; } }
 
-@keyframes cine-fadeIn-andGrow {
+@keyframes c-fadeInThenOut {
+  0% {
+    opacity: 0; }
+  40% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes c-grow {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.5); } }
+
+@keyframes c-growAndFadeIn {
   0% {
     opacity: 0;
     transform: scale(1); }
   75% {
     opacity: 1; }
-  80% {
+  85% {
     opacity: 1;
-    transform: scale(2); }
+    transform: scale(1.5); }
   100% {
     opacity: 1;
-    transform: scale(2); } }
+    transform: scale(1.5); } }
 
-/* TODO: include some time to post fade out? */
-@keyframes cine-fadeInAndOut-andGrow {
+@keyframes c-growAndFadeInThenOut {
   0% {
     opacity: 0;
     transform: scale(1); }
-  50% {
+  55% {
     opacity: 1; }
-  70% {
+  75% {
     opacity: 1; }
   100% {
     opacity: 0;
-    transform: scale(2); } }
+    transform: scale(1.5); } }
 
-@keyframes cine-animateCorners {
+@keyframes c-shrink {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0.5); } }
+
+@keyframes c-shrinkAndFadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    transform: scale(0.5);
+    opacity: 0; } }
+
+.cinematic--fadeIn {
+  animation-name: c-fadeIn; }
+
+.cinematic--fadeOut {
+  animation-name: c-fadeOut; }
+
+.cinematic--fadeInThenOut {
+  animation-name: c-fadeInThenOut; }
+
+.cinematic--grow {
+  transform-origin: center center;
+  animation-name: c-grow; }
+
+.cinematic--growAndFadeIn {
+  transform-origin: center center;
+  animation-name: c-growAndFadeIn; }
+
+.cinematic--growAndFadeInThenOut {
+  transform-origin: center center;
+  animation-name: c-growAndFadeInThenOut; }
+
+.cinematic--shrink {
+  transform-origin: center center;
+  animation-name: c-shrink; }
+
+.cinematic--shrinkAndFadeOut {
+  transform-origin: center center;
+  animation-name: c-shrinkAndFadeOut; }
+
+@keyframes c-extendLinesFromCorner {
   0% {
     width: 0%;
     height: 0%; }
-  20% {
+  25% {
     width: 40%;
     height: 40%; }
-  80% {
+  70% {
     width: 40%;
     height: 40%; }
   100% {
     width: 0%;
     height: 0%; } }
+
+@keyframes c-scrollTextUp {
+  0% {
+    top: 2em;
+    opacity: 0; }
+  25% {
+    top: 2em;
+    opacity: 0; }
+  65% {
+    top: 0;
+    opacity: 1; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+
+@keyframes c-drawUnderline {
+  0% {
+    width: 0%; }
+  65% {
+    width: 100%; }
+  100% {
+    width: 100%; } }
+
+.cinematic--fadeInWithCorners {
+  position: relative;
+  padding: 0.25em;
+  line-height: 1;
+  animation-name: c-fadeInThenOut; }
+  .cinematic--fadeInWithCorners::before, .cinematic--fadeInWithCorners::after {
+    content: "";
+    position: absolute;
+    border: 0.0625em solid transparent;
+    width: 40%;
+    height: 40%;
+    animation-name: c-extendLinesFromCorner; }
+  .cinematic--fadeInWithCorners::before {
+    left: 0;
+    bottom: 0;
+    border-left-color: #DD2211;
+    border-bottom-color: #DD2211; }
+  .cinematic--fadeInWithCorners::after {
+    top: 0;
+    right: 0;
+    border-top-color: #DD2211;
+    border-right-color: #DD2211; }
+
+.cinematic--scrollUpBehindLine {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.25em;
+  overflow-y: hidden; }
+  .cinematic--scrollUpBehindLine::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    animation-name: c-drawUnderline;
+    /* user should be able to change color, maybe even thickness */
+    border-bottom: 0.0625em solid #DD2211; }
+  .cinematic--scrollUpBehindLine .cinematic__text {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    animation-name: c-scrollTextUp; }
 
 .cinematic--shrink-in-focus {
   transform-origin: center center;
@@ -117,46 +201,6 @@
   /* demo styles */
   background: rgba(255, 255, 255, 0.95);
   font-weight: 600; }
-
-/* must be a text element, with a span element */
-.cinematic.cinematic--credit-slide-01 {
-  display: inline-block;
-  position: relative;
-  padding-bottom: 0.16667em;
-  overflow-y: hidden; }
-  .cinematic.cinematic--credit-slide-01::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    animation: c--cs01--underline 3s cubic-bezier(0.32, 0.35, 0.45, 0.94) 2 alternate;
-    /* user should be able to change color, maybe even thickness */
-    border-bottom: 0.0833em solid #cc0000; }
-  .cinematic.cinematic--credit-slide-01 .cinematic__text {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    animation: c--cs01--text 3s cubic-bezier(0.32, 0.35, 0.45, 0.94) 2 alternate; }
-
-@keyframes c--cs01--text {
-  0% {
-    top: 2em; }
-  20% {
-    top: 2em; }
-  50% {
-    top: 0; } }
-
-@keyframes c--cs01--underline {
-  0% {
-    width: 0%;
-    left: -25%; }
-  30% {
-    width: 100%;
-    left: -25%; }
-  50% {
-    width: 100%;
-    left: 0; } }
 
 @keyframes shrink-in-focus {
   0% {

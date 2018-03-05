@@ -1,0 +1,11 @@
+@keyframes c-scrollTextUp {
+  0% { top: 2em; opacity: 0; }
+  25% { top: 2em; opacity: 0; }
+  65% { top: 0; opacity: 1;}
+  100% { top: 0; opacity: 1;}
+}
+@keyframes c-drawUnderline {
+  0% { width: 0%; }
+  65% { width: 100%; }
+  100% { width: 100%; }
+}

@@ -1,0 +1,40 @@
+@import './animations/simple/fade-in';
+@import './animations/simple/fade-out';
+@import './animations/simple/fade-in-then-out';
+@import './animations/simple/grow';
+@import './animations/simple/grow-and-fade-in';
+@import './animations/simple/grow-and-fade-in-then-out';
+@import './animations/simple/shrink';
+@import './animations/simple/shrink-and-fade-out';
+
+.cinematic-- {
+  &fadeIn {
+    animation-name: c-fadeIn;
+  }
+  &fadeOut {
+    animation-name: c-fadeOut;
+  }
+  &fadeInThenOut {
+    animation-name: c-fadeInThenOut;
+  }
+  &grow {
+    transform-origin: $t-center;
+    animation-name: c-grow;
+  }
+  &growAndFadeIn {
+    transform-origin: $t-center;
+    animation-name: c-growAndFadeIn;
+  }
+  &growAndFadeInThenOut {
+    transform-origin: $t-center;
+    animation-name: c-growAndFadeInThenOut;
+  }
+  &shrink {
+    transform-origin: $t-center;
+    animation-name: c-shrink;
+  }
+  &shrinkAndFadeOut {
+    transform-origin: $t-center;
+    animation-name: c-shrinkAndFadeOut;
+  }
+}

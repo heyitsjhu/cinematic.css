@@ -1,0 +1,59 @@
+$defaultBorderRatio: 0.0625em;
+$defaultBorderColor: #DD2211;
+
+@import './animations/complex/fade-in-with-corners';
+@import './animations/complex/scroll-up-behind-line';
+
+.cinematic-- {
+  &fadeInWithCorners {
+    position: relative;
+    padding: 0.25em;
+    line-height: 1;
+    animation-name: c-fadeInThenOut;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      border: $defaultBorderRatio solid transparent;
+      width: 40%;
+      height: 40%;
+      animation-name: c-extendLinesFromCorner;
+    }
+    &::before {
+      left: 0;
+      bottom: 0;
+      border-left-color: $defaultBorderColor;
+      border-bottom-color: $defaultBorderColor;
+    }
+    &::after {
+      top: 0;
+      right: 0;
+      border-top-color: $defaultBorderColor;
+      border-right-color: $defaultBorderColor;
+    }
+  }
+  &scrollUpBehindLine {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.25em;
+    overflow-y: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      animation-name: c-drawUnderline;
+
+      /* user should be able to change color, maybe even thickness */
+      border-bottom: $defaultBorderRatio solid $defaultBorderColor;
+    }
+    .cinematic__text {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      animation-name: c-scrollTextUp;
+    }
+  }
+
+}

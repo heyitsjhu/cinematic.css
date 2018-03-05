@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   background-color: #111;
   font-size: 1.6rem;
 }
@@ -28,6 +29,8 @@ body {
   font-weight: 300;
   text-transform: uppercase;
   opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .button-group {
   padding: 1rem;
